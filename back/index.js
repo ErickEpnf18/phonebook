@@ -82,12 +82,10 @@ app.post("/api/persons", (req, res, next) => {
   };
 
   persons = persons.concat(person);
-
-  // morgan.token('resBody', (req, res) => JSON.stringify(person));
   res.json(person);
 });
 
-const PORT = 3006;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () =>
   console.log("Listening on ", `http://localhost:${PORT}`)
 );

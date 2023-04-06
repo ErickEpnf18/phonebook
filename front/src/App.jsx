@@ -7,14 +7,6 @@ import Notification from "./components/Notification";
 import Filter from "./components/Filter";
 import Persons from "./components/Persons";
 
-
-
-
-
-
-
-
-
 const App = () => {
   const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState({ name: "", number: "" });

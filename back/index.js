@@ -12,17 +12,7 @@ const morganFunc = morgan(
   ":method :url :status :res[content-length] - :response-time ms :resBody"
 );
 
-// const secMorganFunc = morgan(function (tokens, req, res) {
-//   // console.log(tokens.resBody())
-//   return [
-//     tokens.method(req, res),
-//     tokens.url(req, res),
-//     tokens.status(req, res),
-//     tokens.res(req, res, 'content-length'), '-',
-//     tokens['response-time'](req, res), 'ms',
-//     tokens.resBody() ? tokens.resBody : ""
-//   ].join(' ')
-// })
+app.use(express.static('dist'))
 
 app.use(morganFunc);
 

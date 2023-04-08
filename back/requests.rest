@@ -1,4 +1,4 @@
-@url = http://localhost:3006/
+@url = http://localhost:3001/
 ###
 GET {{url}}api/persons
 
@@ -7,16 +7,26 @@ GET {{url}}info
 
 ###
 
-GET {{url}}person/3
+GET {{url}}api/persons/643100189b88a4908aa8103b
+
 
 ###
-DELETE {{url}}person/4
+PUT {{url}}api/persons/6430d12396c1dcaa947fafec
+Content-Type: application/json
+
+{
+    "name": "Kio kusanagi",
+    "number": "12384123-2389"
+}
+
+###
+DELETE {{url}}api/persons/6430d12396c1dcaa947fafec
 
 ###
 POST {{url}}api/persons
 Content-Type: application/json
 
 {
-    "name": "Segio Layos",
+    "name": "Mario Egas Layos",
     "number": "12384123-2389"
 }

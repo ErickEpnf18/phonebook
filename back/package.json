@@ -8,13 +8,19 @@
     "dev": "nodemon index",
     "build:ui": "rm -rf dist && cd ../front && npm run build && cp -r dist ../back",
     "deploy:full": "npm run build:ui && git add ../ && git commit -m uibuild && git push",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "Erick A. f18",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22",
+    "plugin-import": "^1.0.52"
   },
   "dependencies": {
     "cors": "^2.8.5",

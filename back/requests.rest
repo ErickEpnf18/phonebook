@@ -7,16 +7,16 @@ GET {{url}}info
 
 ###
 
-GET {{url}}api/persons/643100189b88a4908aa8103b
+GET {{url}}api/persons/6430fa2ee6e2db59994aef30
 
 
 ###
-PUT {{url}}api/persons/6430d12396c1dcaa947fafec
+PUT {{url}}api/persons/6430fa2ee6e2db59994aef30
 Content-Type: application/json
 
 {
-    "name": "Kio kusanagi",
-    "number": "12384123-2389"
+    "name": "Eddi Vedderrrr2",
+    "number": "333-4223"
 }
 
 ###
@@ -27,6 +27,6 @@ POST {{url}}api/persons
 Content-Type: application/json
 
 {
-    "name": "Mario Egas Layos",
+    "name": "Luigi Egas Layos",
     "number": "12384123-2389"
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-// const PORT = process.env.PORT || 3001;
+// const PORT = import.meta.env.VITE_PORT || 3001;
 // const baseUrl = `http://localhost:${PORT}/api/persons`;
 
 const baseUrl = `/api/persons`;

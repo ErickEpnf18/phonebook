@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 let morgan = require("morgan");
 // let persons = require("./data");
 const Person = require("./models/persons.js");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 morgan.token("resBody", (req, res) =>
   Object.values(req.body).length !== 0 ? JSON.stringify(req.body) : ""
@@ -34,9 +36,9 @@ app.get("/api/persons/:id", (req, res, next) => {
   Person.findById(req.params.id)
     .then((getPerson) => {
       if (!getPerson) {
-        response.status(404).send({ error: "Person not found" });
+        res.status(404).send({ error: "Person not found" });
       } else {
-        response.json(getPerson);
+        res.json(getPerson);
       }
     })
     .catch((err) => next(err));
@@ -55,17 +57,18 @@ app.put("/api/persons/:id", (request, response, next) => {
     name: body.name,
     number: body.number,
   };
+
   // new:true is for return a new updatePerson
-  Person.findByIdAndUpdate(id, person, { new: true })
+  const opts = { new: true, runValidators: true, context: "query" };
+
+  Person.findByIdAndUpdate(id, person, opts)
     .then((updatePerson) => {
       if (!updatePerson) {
-        response.status(404).send({ error: "Person not found" });
+        return response.status(404).send({ error: "Person not found" });
         // next();
       } else {
-        response.json(updatePerson);
+        return response.json(updatePerson);
       }
-
-      response.json(updatePerson);
     })
     .catch((error) => next(error));
 });
@@ -100,6 +103,8 @@ const errorHandler = (error, request, response, next) => {
   console.log(error.message);
   if (error.name === "CastError")
     return response.status(400).send({ error: "malformatted id" });
+  if (error.name === "ValidationError")
+    return response.status(400).json({ error: error.message });
 
   next(error);
 };

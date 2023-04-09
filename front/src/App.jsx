@@ -51,7 +51,8 @@ const App = () => {
           )
           .catch((error) => {
             setMessage({
-              msg: `Person '${newName.name}' was already removed from server`,
+              // msg: `Person '${newName.name}' was already removed from server`,
+              msg: `${error.response.data.error}`,
               hasError: true,
             });
             setTimeout(() => {
@@ -76,6 +77,13 @@ const App = () => {
         setMessage({
           msg: `Added ${newName.name}`,
           hasError: false,
+        });
+        setTimeout(() => setMessage(null), 5000);
+      })
+      .catch((error) => {
+        setMessage({
+          msg: `${error.response.data.error}`,
+          hasError: true,
         });
         setTimeout(() => setMessage(null), 5000);
       });

@@ -8,8 +8,8 @@ const { model, Schema } = mongoose;
 mongoose.set('strictQuery', false);
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then((result) => {
-    console.log('connected to MongoDB', result);
+  .then(() => {
+    console.log('connected to MongoDB');
   })
   .catch((error) => {
     console.log('error connecting to MongoDB:', error.message);

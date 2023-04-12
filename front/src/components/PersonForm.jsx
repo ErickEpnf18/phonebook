@@ -7,7 +7,7 @@ const PersonForm = ({ submit, handleChange, newName }) => (
       </div>
       <div>
         number:
-        <input name="number" onChange={handleChange} value={newName.number} />
+        <input name="number" placeholder="Eg. 29-678304" onChange={handleChange} value={newName.number} />
       </div>
       <div>
         <button type="submit">add</button>

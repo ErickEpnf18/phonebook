@@ -60,6 +60,7 @@ const App = () => {
             }, 5000);
             setPersons(persons.filter((n) => n.id !== verifiedName.id));
           });
+          setNewName({ name: "", number: "" })
         return;
       } else return;
     }
@@ -78,6 +79,7 @@ const App = () => {
           msg: `Added ${newName.name}`,
           hasError: false,
         });
+        setNewName({ name: "", number: "" })
         setTimeout(() => setMessage(null), 5000);
       })
       .catch((error) => {
